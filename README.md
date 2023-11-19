@@ -4,7 +4,21 @@ A password breach detection server
 Rest API to check if a password is in a data breach. Works offline - everything stays on your machine! Database is not included. 
 We also provide a downloader for the hibp database.
 
+## Download our release
+Our github actions releases automatically to https://github.com/DragonSecusrity/easybreach/releases
+
+## Build from source
+```
+ cargo b -r
+```
+
+## Download hibp password hashes as Text File
+If you really want a ~35GB text file with all the hashes
+```
+downloader --sink-stdout > pwned-passwords-sha1-ordered-by-hash-v20.txt
+```
 ## Create your database
+This is what the api uses, and the database is reduced to ~1.1Gb
 ```
 downloader --sink-bloom-file=easybreach.bloom
 ```
