@@ -1,4 +1,5 @@
 /target
+/bin
 .idea/*
 pwned-passwords-sha1-ordered-by-hash-v8.txt
 .DS_Store

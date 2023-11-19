@@ -3,6 +3,12 @@ on:
     tags:
       - 'v*.*.*'
 
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  # github.repository as <account>/<repo>
+  IMAGE_NAME: ${{ github.repository }}
+
 name: compile
 
 jobs:
@@ -33,6 +39,9 @@ jobs:
           use-cross: true
           command: build
           args: "--release --target ${{ matrix.container.rust_target }}"
+      - name: List target
+        run: |
+          ls -lah target/${{ matrix.container.rust_target }}/release
       - name: Build and push
         run: |
           cp target/${{ matrix.container.rust_target }}/release/easybreach target/${{ matrix.container.rust_target }}/release/easybreach_${{ matrix.container.rust_target }}
