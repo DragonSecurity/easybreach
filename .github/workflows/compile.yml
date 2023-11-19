@@ -45,14 +45,14 @@ jobs:
       - name: Build and push
         run: |
           cp target/${{ matrix.container.rust_target }}/release/easybreach target/${{ matrix.container.rust_target }}/release/easybreach_${{ matrix.container.rust_target }}
-          cp target/${{ matrix.container.rust_target }}/release/easybreach_haveibeenpwned_downloader target/${{ matrix.container.rust_target }}/release/easybreach_haveibeenpwned_downloader_${{ matrix.container.rust_target }}
+          cp target/${{ matrix.container.rust_target }}/release/downloader target/${{ matrix.container.rust_target }}/release/downloader_${{ matrix.container.rust_target }}
       - name: Prepare output artifact (easybreach)
         uses: actions/upload-artifact@v3
         with:
           name: easybreach-${{ matrix.container.rust_target }}
           path: |
             target/${{ matrix.container.rust_target }}/release/easybreach_${{ matrix.container.rust_target }}
-            target/${{ matrix.container.rust_target }}/release/easybreach_haveibeenpwned_downloader_${{ matrix.container.rust_target }}
+            target/${{ matrix.container.rust_target }}/release/downloader_${{ matrix.container.rust_target }}
 
   release:
     name: Release
