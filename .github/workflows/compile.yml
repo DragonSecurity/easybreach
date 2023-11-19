@@ -97,15 +97,21 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           path: binaries
-      - name: Build and push
-        run: |
-          ls -lah binaries/easybreach-${{ matrix.container.rust_target }}/
-          cp binaries/easybreach-${{ matrix.container.rust_target }}/easybreach${{ matrix.container.rust_target }} binary_easybreach
-          chmod +x binary_easybreach
-          cp binaries/easybreach-${{ matrix.container.rust_target }}/easybreach_haveibeenpwned_downloader_${{ matrix.container.rust_target }} binary_easybreach_haveibeenpwned_downloader
-          chmod +x binary_easybreach_haveibeenpwned_downloader
-          docker buildx build -o type=docker --platform linux/${{ matrix.container.arch }} -t dragonsecurity/easybreach:${{github.ref_name}}_${{ matrix.container.arch }} .
-          docker push dragonsecurity/easybreach:${{github.ref_name}}_${{ matrix.container.arch }}
+
+      - name: Install cosign
+        if: github.event_name != 'pull_request'
+        uses: sigstore/cosign-installer@f3c664df7af409cb4873aa5068053ba9d61a57b6 #v2.6.0
+        with:
+          cosign-release: 'v1.11.0'
+      - name: Build and push Docker image
+        id: build-and-push
+        uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
+        with:
+          context: .
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   docker_manifest:
     name: Docker Image
