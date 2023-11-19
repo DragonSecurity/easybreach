@@ -99,6 +99,7 @@ jobs:
           path: binaries
       - name: Build and push
         run: |
+          ls -lah binaries/easybreach-${{ matrix.container.rust_target }}/
           cp binaries/easybreach-${{ matrix.container.rust_target }}/easybreach${{ matrix.container.rust_target }} binary_easybreach
           chmod +x binary_easybreach
           cp binaries/easybreach-${{ matrix.container.rust_target }}/easybreach_haveibeenpwned_downloader_${{ matrix.container.rust_target }} binary_easybreach_haveibeenpwned_downloader
