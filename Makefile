@@ -1,5 +1,5 @@
 build_bloom:
-	cargo run --release --bin easybreach_hibp_downloader -- --sink-bloom-file=easybreach.bloom
+	cargo run --release --bin downloader -- --sink-bloom-file=easybreach.bloom
 
 run_release:
 	cargo run --release --bin easybreach

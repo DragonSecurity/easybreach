@@ -5,3 +5,5 @@ members = [
     "easybreach",
     "easybreach_bloom",
 ]
+
+resolver = "2"
