@@ -1,8 +1,9 @@
 /target
 /bin
 .idea/*
-pwned-passwords-sha1-ordered-by-hash-v8.txt
+pwned-passwords-sha1-ordered-by-hash-v20.txt
 .DS_Store
 out.txt
 **/*.bloom
+!easybreach.bloom
 **/*.zip
