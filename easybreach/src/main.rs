@@ -11,6 +11,7 @@ use serde_derive::Deserialize;
 use std::sync::Arc;
 use structopt::StructOpt;
 use tokio::signal::unix::{signal, SignalKind};
+use tower_http::cors::{Any, CorsLayer};
 
 #[derive(StructOpt, Debug)]
 #[structopt(name = "basic")]
@@ -51,10 +52,14 @@ async fn main() -> ::anyhow::Result<(), ::anyhow::Error> {
     }
 
     let bloom_ext = Arc::new(bloom);
+
+    let cors = CorsLayer::new().allow_origin(Any);
+
     let app = Router::new()
         .route("/hash/:hash", get(handler_hash))
         .route("/pw/:pw", get(handler_pw))
         .route("/check", post(handler_check))
+        .layer(cors)
         .layer(Extension(bloom_ext));
 
     let addr = opt.bind.parse::<SocketAddr>().expect("");
