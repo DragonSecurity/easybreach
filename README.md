@@ -34,7 +34,7 @@ EasyBreach checks passwords based on the password list provided by haveibeenpwne
 You'll get a "secure":true if the password is not breached. use the /hash/ endpoint in production instead!
 ```
 curl http://127.0.0.1:3342/pw/test
-{"hash":"A94A8FE5CCB19BA61C4C0873D391E987982FBBD3","pw":"test","secure":false}
+{"hash":"A94A8FE5CCB19BA61C4C0873D391E987982FBBD3","secure":false}
 ```
 
 ### /hash/[UPPERCASE(SHA1(blank_password))]
