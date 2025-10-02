@@ -47,7 +47,7 @@ jobs:
           cp target/${{ matrix.container.rust_target }}/release/easybreach target/${{ matrix.container.rust_target }}/release/easybreach_${{ matrix.container.rust_target }}
           cp target/${{ matrix.container.rust_target }}/release/downloader target/${{ matrix.container.rust_target }}/release/downloader_${{ matrix.container.rust_target }}
       - name: Prepare output artifact (easybreach)
-        uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: easybreach-${{ matrix.container.rust_target }}
           path: |
@@ -60,7 +60,7 @@ jobs:
     needs: ["build"]
     steps:
       - name: download artifacts
-        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
         with:
           path: binaries
       - name: Release
@@ -94,7 +94,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: download artifacts
-        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
         with:
           path: binaries
 
