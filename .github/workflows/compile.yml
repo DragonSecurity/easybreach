@@ -64,7 +64,7 @@ jobs:
         with:
           path: binaries
       - name: Release
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # v1
+        uses: softprops/action-gh-release@6cbd405e2c4e67a21c47fa9e383d020e4e28b836 # v2
         with:
           fail_on_unmatched_files: true
           files: |
