@@ -13,7 +13,7 @@ serde_derive = "1.*"
 tracing = "0.1.*"
 sha-1 = "0.*"
 base16ct = { version = "0.2", features = ["alloc", "std"]}
-structopt = "0.*"
+structopt = "0.3.26"
 easybreach_bloom = {path = "../easybreach_bloom"}
 tower-http = { version = "0.3.0", features = ["cors"] }
 http = "1.0.0"
