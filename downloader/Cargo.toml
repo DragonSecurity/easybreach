@@ -13,7 +13,7 @@ tracing = "0.1.*"
 tracing-subscriber = "0.3.*"
 serde_derive = "1.0.*"
 structopt = "0.*"
-byteorder = "1.*"
+byteorder = "1.2.7"
 hex = "0.4.1"
 reqwest = { version = "0.*", default-features = false, features = ["rustls-tls", "gzip", "brotli", "deflate", "tokio-rustls"] }
 easybreach_bloom = {path = "../easybreach_bloom"}
