@@ -7,7 +7,7 @@ edition = "2021"
 
 [dependencies]
 bloomfilter = "1.*"
-bincode = { version = "1.*"}
+bincode = { version = "1.0.1"}
 anyhow = "1.*"
 serde = "1.*"
 serde_derive = "1.*"
