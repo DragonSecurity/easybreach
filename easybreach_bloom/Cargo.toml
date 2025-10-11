@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bloomfilter = "1.*"
+bloomfilter = "2.0.0"
 bincode = { version = "1.*"}
 anyhow = "1.*"
 serde = "1.*"
